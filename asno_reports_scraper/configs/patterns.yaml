@@ -1,0 +1,363 @@
+generated_at: "2026-06-17T16:46:31"
+read_only: true
+dangerous_actions:
+  - "crear"
+  - "editar"
+  - "guardar"
+  - "actualizar"
+  - "eliminar"
+  - "borrar"
+  - "anular"
+  - "confirmar"
+  - "pagar"
+  - "cerrar caja"
+  - "facturar"
+  - "enviar"
+  - "importar"
+  - "sincronizar"
+  - "procesar"
+  - "aprobar"
+patterns:
+  filter_paginated_table:
+    recommended_extractor: "generic_filter_paginated_table_extractor"
+    pages_count: 70
+    confidence: "high"
+    repeated_selectors:
+    modules:
+      - module: "reports"
+        count: 22
+      - module: "system_settings"
+        count: 21
+      - module: "production_order"
+        count: 4
+      - module: "products"
+        count: 4
+      - module: "purchases"
+        count: 3
+      - module: "suppliers"
+        count: 2
+      - module: "transfers"
+        count: 2
+      - module: "wappsi_invoicing"
+        count: 2
+      - module: "affiliates"
+        count: 1
+      - module: "billers"
+        count: 1
+      - module: "customers"
+        count: 1
+      - module: "marketing"
+        count: 1
+      - module: "notifications"
+        count: 1
+      - module: "pos"
+        count: 1
+      - module: "quotes"
+        count: 1
+      - module: "sales"
+        count: 1
+      - module: "seller"
+        count: 1
+      - module: "users"
+        count: 1
+    sample_pages:
+      - name: "Lista de afiliados"
+        url: "https://wappsi336.com/holamigo/admin/affiliates"
+      - name: "Lista Sucursales"
+        url: "https://wappsi336.com/holamigo/admin/billers"
+      - name: "Lista Clientes"
+        url: "https://wappsi336.com/holamigo/admin/customers"
+      - name: "Cupones"
+        url: "https://wappsi336.com/holamigo/admin/marketing/coupons"
+      - name: "Notificaciones"
+        url: "https://wappsi336.com/holamigo/admin/notifications"
+      - name: "Lista Impresoras"
+        url: "https://wappsi336.com/holamigo/admin/pos/printers"
+      - name: "Lista de órdenes de confección"
+        url: "https://wappsi336.com/holamigo/admin/production_order"
+      - name: "Órdenes de corte"
+        url: "https://wappsi336.com/holamigo/admin/production_order/cutting_orders"
+      - name: "Órdenes de empaque"
+        url: "https://wappsi336.com/holamigo/admin/production_order/packing_orders"
+      - name: "Órdenes de ensamble"
+        url: "https://wappsi336.com/holamigo/admin/production_order/assemble_orders"
+  filter_table:
+    recommended_extractor: "generic_filter_table_extractor"
+    pages_count: 27
+    confidence: "high"
+    repeated_selectors:
+    modules:
+      - module: "products"
+        count: 8
+      - module: "purchases"
+        count: 4
+      - module: "reports"
+        count: 3
+      - module: "pos"
+        count: 2
+      - module: "quotes"
+        count: 2
+      - module: "returns"
+        count: 2
+      - module: "transfers"
+        count: 2
+      - module: "debit_notes"
+        count: 1
+      - module: "production_order"
+        count: 1
+      - module: "sales"
+        count: 1
+      - module: "wappsi_invoicing"
+        count: 1
+    sample_pages:
+      - name: "Agregar Nota Débito"
+        url: "https://wappsi336.com/holamigo/admin/debit_notes/add"
+      - name: "Agregar Venta POS"
+        url: "https://wappsi336.com/holamigo/admin/pos"
+      - name: "POS Mayorista"
+        url: "https://wappsi336.com/holamigo/admin/pos/add_wholesale"
+      - name: "Agregar orden de confección"
+        url: "https://wappsi336.com/holamigo/admin/production_order/add"
+      - name: "Agregar Ajuste de Cantidad"
+        url: "https://wappsi336.com/holamigo/admin/products/add_adjustment"
+      - name: "Agregar Orden de Producción"
+        url: "https://wappsi336.com/holamigo/admin/products/add_production_order"
+      - name: "Agregar Producto"
+        url: "https://wappsi336.com/holamigo/admin/products/add"
+      - name: "Agregar Transformación de Productos"
+        url: "https://wappsi336.com/holamigo/admin/products/add_product_transformation"
+      - name: "Agregar conteo físico desde archivo"
+        url: "https://wappsi336.com/holamigo/admin/products/count_stock"
+      - name: "Agregar conteo rápido"
+        url: "https://wappsi336.com/holamigo/admin/products/add_express_count"
+  transaction_form:
+    recommended_extractor: "manual_review_transaction_form"
+    pages_count: 23
+    confidence: "high"
+    repeated_selectors:
+    modules:
+      - module: "reports"
+        count: 12
+      - module: "financing"
+        count: 2
+      - module: "products"
+        count: 2
+      - module: "affiliates"
+        count: 1
+      - module: "billers"
+        count: 1
+      - module: "pos"
+        count: 1
+      - module: "seller"
+        count: 1
+      - module: "system_settings"
+        count: 1
+      - module: "transfers"
+        count: 1
+      - module: "users"
+        count: 1
+    sample_pages:
+      - name: "Agregar afiliado"
+        url: "https://wappsi336.com/holamigo/admin/affiliates/add"
+      - name: "Clave dinámica"
+        url: "https://wappsi336.com/holamigo/admin/billers/random_pin_code"
+      - name: "Lista de Creditos"
+        url: "https://wappsi336.com/holamigo/admin/system_settings"
+      - name: "Lista de Cuotas"
+        url: "https://wappsi336.com/holamigo/admin/system_settings"
+      - name: "Agregar Impresora"
+        url: "https://wappsi336.com/holamigo/admin/pos/add_printer"
+      - name: "Agregar conteo físico desde archivo con variantes"
+        url: "https://wappsi336.com/holamigo/admin/products/count_stock_variants"
+      - name: "Importar Productos"
+        url: "https://wappsi336.com/holamigo/admin/products/import_csv"
+      - name: "Cartera de Clientes por Edades"
+        url: "https://wappsi336.com/holamigo/admin/reports/portfolio_report_2"
+      - name: "Cartera de Vendedores por Edades"
+        url: "https://wappsi336.com/holamigo/admin/reports/portfolio_report"
+      - name: "Informe Comprobante Diario (Z)"
+        url: "https://wappsi336.com/holamigo/admin/reports/load_zeta"
+  detail_page:
+    recommended_extractor: "generic_detail_page_reader"
+    pages_count: 22
+    confidence: "high"
+    repeated_selectors:
+    modules:
+      - module: "sales"
+        count: 6
+      - module: "pos"
+        count: 5
+      - module: "reports"
+        count: 5
+      - module: "warranty"
+        count: 2
+      - module: "budget"
+        count: 1
+      - module: "customers"
+        count: 1
+      - module: "products"
+        count: 1
+      - module: "sales_reports"
+        count: 1
+    sample_pages:
+      - name: "Presupuestos de Venta"
+        url: "https://wappsi336.com/holamigo/admin/budget"
+      - name: "Lista Anticipos"
+        url: "https://wappsi336.com/holamigo/admin/customers/list_deposits/"
+      - name: "Lista Factura POS Electrónico"
+        url: "https://wappsi336.com/holamigo/admin/pos/fe_index"
+      - name: "Lista Facturas POS"
+        url: "https://wappsi336.com/holamigo/admin/pos/sales"
+      - name: "Movimientos de Caja"
+        url: "https://wappsi336.com/holamigo/admin/pos/pos_register_movements"
+      - name: "Servidor de Impresión"
+        url: "https://wappsi336.com/holamigo/admin/pos/pos_print_server"
+      - name: "Ver Cajas Abiertas"
+        url: "https://wappsi336.com/holamigo/admin/pos/registers"
+      - name: "Lista de conteos físicos"
+        url: "https://wappsi336.com/holamigo/admin/products/stock_counts"
+      - name: "Informe de Clientes"
+        url: "https://wappsi336.com/holamigo/admin/reports/customers"
+      - name: "Informe de Sucursales de clientes"
+        url: "https://wappsi336.com/holamigo/admin/reports/customers_addresses"
+  document_report:
+    recommended_extractor: "generic_document_report_detector"
+    pages_count: 11
+    confidence: "high"
+    repeated_selectors:
+    modules:
+      - module: "reports"
+        count: 4
+      - module: "dashboard"
+        count: 3
+      - module: "system_settings"
+        count: 2
+      - module: "auth"
+        count: 1
+      - module: "pos"
+        count: 1
+    sample_pages:
+      - name: "Código QR para registrar cliente"
+        url: "https://wappsi336.com/holamigo/admin/auth/qr_rau"
+      - name: "Tablero Financiero"
+        url: "https://wappsi336.com/holamigo/admin/dashboard/financial"
+      - name: "Tablero POS Actions"
+        url: "https://wappsi336.com/holamigo/admin/dashboard/posActions"
+      - name: "Tablero Ventas"
+        url: "https://wappsi336.com/holamigo/admin/dashboard/sales"
+      - name: "Verificador de productos"
+        url: "https://wappsi336.com/holamigo/admin/pos/price_checker"
+      - name: "Cantidades en Bodega"
+        url: "https://wappsi336.com/holamigo/admin/reports/warehouse_stock"
+      - name: "Enlaces Directos"
+        url: "https://wappsi336.com/holamigo/admin/reports"
+      - name: "Indicadores Rápidos"
+        url: "https://wappsi336.com/holamigo/admin/reports/profit_loss"
+      - name: "Informe Productos más Vendidos"
+        url: "https://wappsi336.com/holamigo/admin/reports/best_sellers"
+      - name: "Cierre mensual"
+        url: "https://wappsi336.com/holamigo/admin/system_settings/monthly_closing"
+  list_table:
+    recommended_extractor: "generic_table_extractor"
+    pages_count: 10
+    confidence: "high"
+    repeated_selectors:
+    modules:
+      - module: "pos"
+        count: 2
+      - module: "sales"
+        count: 2
+      - module: "calendar"
+        count: 1
+      - module: "customers"
+        count: 1
+      - module: "dashboard"
+        count: 1
+      - module: "root"
+        count: 1
+      - module: "suppliers"
+        count: 1
+      - module: "system_settings"
+        count: 1
+    sample_pages:
+      - name: "Calendario"
+        url: "https://wappsi336.com/holamigo/admin/calendar"
+      - name: "Agregar cliente"
+        url: "https://wappsi336.com/holamigo/admin/calendar"
+      - name: "Inicio"
+        url: "https://wappsi336.com/holamigo/admin/calendar"
+      - name: "Agregar Movimiento de Caja"
+        url: "https://wappsi336.com/holamigo/admin/calendar"
+      - name: "Ventas de Hoy"
+        url: "https://wappsi336.com/holamigo/admin/pos/today_sale"
+      - name: "Órdenes de pedido"
+        url: "https://wappsi336.com/holamigo/admin/calendar"
+      - name: "Exportar Notas Contables"
+        url: "https://wappsi336.com/holamigo/admin/calendar"
+      - name: "Servidor de impresión"
+        url: "https://wappsi336.com/holamigo/admin/sales/printServer"
+      - name: "Agregar Proveedor"
+        url: "https://wappsi336.com/holamigo/admin/calendar"
+      - name: "Cargar Imágenes"
+        url: "https://wappsi336.com/holamigo/admin/calendar"
+  settings_page:
+    recommended_extractor: "manual_review_settings_reader"
+    pages_count: 7
+    confidence: "high"
+    repeated_selectors:
+    modules:
+      - module: "system_settings"
+        count: 2
+      - module: "marketing"
+        count: 1
+      - module: "pos"
+        count: 1
+      - module: "products"
+        count: 1
+      - module: "reports"
+        count: 1
+      - module: "users"
+        count: 1
+    sample_pages:
+      - name: "Ajustes"
+        url: "https://wappsi336.com/holamigo/admin/marketing/settings"
+      - name: "Parámetros POS"
+        url: "https://wappsi336.com/holamigo/admin/pos/settings"
+      - name: "Lista Ajustes de Cantidades"
+        url: "https://wappsi336.com/holamigo/admin/products/quantity_adjustments"
+      - name: "Informe de Ajustes"
+        url: "https://wappsi336.com/holamigo/admin/reports/adjustments"
+      - name: "Parámetros Generales"
+        url: "https://wappsi336.com/holamigo/admin/system_settings"
+      - name: "Preferencias del Producto"
+        url: "https://wappsi336.com/holamigo/admin/system_settings/product_preferences"
+      - name: "Perfil"
+        url: "https://wappsi336.com/holamigo/admin/users/profile/24"
+  paginated_table:
+    recommended_extractor: "generic_paginated_table_extractor"
+    pages_count: 4
+    confidence: "high"
+    repeated_selectors:
+    modules:
+      - module: "reports"
+        count: 4
+    sample_pages:
+      - name: "Compras Diarias"
+        url: "https://wappsi336.com/holamigo/admin/reports/daily_purchases"
+      - name: "Compras Mensuales"
+        url: "https://wappsi336.com/holamigo/admin/reports/monthly_purchases"
+      - name: "Ventas Diarias"
+        url: "https://wappsi336.com/holamigo/admin/reports/daily_sales"
+      - name: "Ventas Mensuales"
+        url: "https://wappsi336.com/holamigo/admin/reports/monthly_sales"
+  unknown:
+    recommended_extractor: "inspect_manually"
+    pages_count: 1
+    confidence: "low"
+    repeated_selectors:
+    modules:
+      - module: "pos"
+        count: 1
+    sample_pages:
+      - name: "Ventas suspendidas"
+        url: "https://wappsi336.com/holamigo/admin/pos/opened_bills"

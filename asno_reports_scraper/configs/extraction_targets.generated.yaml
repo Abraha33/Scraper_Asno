@@ -1,0 +1,804 @@
+targets:
+  affiliates_affiliates:
+    name: "Lista de afiliados"
+    module: "affiliates"
+    url: "https://wappsi336.com/holamigo/admin/affiliates"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  billers_billers:
+    name: "Lista Sucursales"
+    module: "billers"
+    url: "https://wappsi336.com/holamigo/admin/billers"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  customers_customers:
+    name: "Lista Clientes"
+    module: "customers"
+    url: "https://wappsi336.com/holamigo/admin/customers"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  marketing_coupons:
+    name: "Cupones"
+    module: "marketing"
+    url: "https://wappsi336.com/holamigo/admin/marketing/coupons"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  notifications_notifications:
+    name: "Notificaciones"
+    module: "notifications"
+    url: "https://wappsi336.com/holamigo/admin/notifications"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  pos_printers:
+    name: "Lista Impresoras"
+    module: "pos"
+    url: "https://wappsi336.com/holamigo/admin/pos/printers"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  production_order_assemble_orders:
+    name: "Órdenes de ensamble"
+    module: "production_order"
+    url: "https://wappsi336.com/holamigo/admin/production_order/assemble_orders"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  production_order_cutting_orders:
+    name: "Órdenes de corte"
+    module: "production_order"
+    url: "https://wappsi336.com/holamigo/admin/production_order/cutting_orders"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  production_order_packing_orders:
+    name: "Órdenes de empaque"
+    module: "production_order"
+    url: "https://wappsi336.com/holamigo/admin/production_order/packing_orders"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  production_order_production_order:
+    name: "Lista de órdenes de confección"
+    module: "production_order"
+    url: "https://wappsi336.com/holamigo/admin/production_order"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  products_product_transformations:
+    name: "Lista Transformación de Productos"
+    module: "products"
+    url: "https://wappsi336.com/holamigo/admin/products/product_transformations"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  products_production_orders:
+    name: "Órdenes de Producción"
+    module: "products"
+    url: "https://wappsi336.com/holamigo/admin/products/production_orders"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  products_products:
+    name: "Lista Productos"
+    module: "products"
+    url: "https://wappsi336.com/holamigo/admin/products"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  products_sequential_counts:
+    name: "Conteos Secuenciales"
+    module: "products"
+    url: "https://wappsi336.com/holamigo/admin/products/sequential_counts"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  purchases_imports:
+    name: "Importaciones"
+    module: "purchases"
+    url: "https://wappsi336.com/holamigo/admin/purchases/imports"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  purchases_purchase-orders:
+    name: "Lista de Órdenes de Compra/Gasto"
+    module: "purchases"
+    url: "https://wappsi336.com/holamigo/admin/purchases/purchase-orders"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  purchases_purchases:
+    name: "Lista Compras"
+    module: "purchases"
+    url: "https://wappsi336.com/holamigo/admin/purchases"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  quotes_quotes:
+    name: "Lista Cotizaciones"
+    module: "quotes"
+    url: "https://wappsi336.com/holamigo/admin/quotes"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  reports_biller_register:
+    name: "Informe de cierres (X) por sucursal"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/biller_register"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_billers_monthly_sales:
+    name: "Informe de Ventas mensuales por sucursal y formas de pago"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/billers_monthly_sales"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_brands:
+    name: "Informe de Marcas"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/brands"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_categories:
+    name: "Informe Ventas y Compras por Categoría"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/categories"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_closed_register_details:
+    name: "Informe Flujo de Caja Detallado"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/closed_register_details"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_collection_commissions:
+    name: "Informe de Comisiones por Recaudo"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/collection_commissions"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_daily_incomes:
+    name: "Informe de ingresos diarios"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/daily_incomes"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_daily_purchases:
+    name: "Compras Diarias"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/daily_purchases"
+    pattern: "paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_daily_sales:
+    name: "Ventas Diarias"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/daily_sales"
+    pattern: "paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  reports_expenses:
+    name: "Informe de gastos"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/expenses"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_expiry_alerts:
+    name: "Alertas Caducidad del Producto"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/expiry_alerts"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  reports_load_rentabilidad_customer:
+    name: "Rentabilidad por Cliente"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/load_rentabilidad_customer"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_load_rentabilidad_doc:
+    name: "Rentabilidad por Documento"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/load_rentabilidad_doc"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_load_rentabilidad_producto:
+    name: "Rentabilidad por Producto"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/load_rentabilidad_producto"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_monthly_purchases:
+    name: "Compras Mensuales"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/monthly_purchases"
+    pattern: "paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_monthly_sales:
+    name: "Ventas Mensuales"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/monthly_sales"
+    pattern: "paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  reports_order_sales:
+    name: "Informe de Órdenes de Pedido"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/order_sales"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_products:
+    name: "Informe Movimiento de Productos"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/products"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_purchases:
+    name: "Informe de Compras"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/purchases"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_purchases_request:
+    name: "Informe para Solicitud de compras"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/purchases_request"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  reports_quantity_alerts:
+    name: "Alertas Cantidad de Producto"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/quantity_alerts"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_register:
+    name: "Informe de Cierres (X)"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/register"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_serial_register:
+    name: "Informe de cierres (X) por serial"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/serial_register"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_tasks:
+    name: "Informe de agendamientos"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/tasks"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  reports_user_activities:
+    name: "Actividad de usuarios"
+    module: "reports"
+    url: "https://wappsi336.com/holamigo/admin/reports/user_activities"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  sales_orders:
+    name: "Lista Órdenes de Pedido"
+    module: "sales"
+    url: "https://wappsi336.com/holamigo/admin/sales/orders"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  sales_report:
+    name: "Informe de Ventas"
+    module: "sales"
+    url: "https://wappsi336.com/holamigo/admin/reports/sales"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "high"
+    safe_read_only: true
+    status: "active"
+  seller_seller:
+    name: "Listar Vendedores"
+    module: "seller"
+    url: "https://wappsi336.com/holamigo/admin/seller"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  suppliers_list_deposits:
+    name: "Lista Anticipos de Proveedores/Acreedores"
+    module: "suppliers"
+    url: "https://wappsi336.com/holamigo/admin/suppliers/list_deposits"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  suppliers_suppliers:
+    name: "Lista Proveedores"
+    module: "suppliers"
+    url: "https://wappsi336.com/holamigo/admin/suppliers"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  system_settings_brands:
+    name: "Marcas"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/brands"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_categories:
+    name: "Categorías"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/categories"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_colors:
+    name: "Colores"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/colors"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_configuration_concept_notes:
+    name: "Conceptos de Notas"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/configuration_concept_notes"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  system_settings_currencies:
+    name: "Monedas"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/currencies"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_customer_groups:
+    name: "Grupos de Clientes"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/customer_groups"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_document_types:
+    name: "Tipos de Documentos"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/document_types"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  system_settings_expense_categories:
+    name: "Categorías de Gastos"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/expense_categories"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_instances:
+    name: "Instancias BPM"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/instances"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_invoice_notes:
+    name: "Notas de Documentos"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/invoice_notes"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_materials:
+    name: "Materiales"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/materials"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_price_groups:
+    name: "Lista Precios"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/price_groups"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_tags:
+    name: "Etiquetas"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/tags"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_tax_rates:
+    name: "Tasas de Impuestos"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/tax_rates"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_ubication:
+    name: "Ubicación"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/ubication"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_units:
+    name: "Unidades"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/units"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_user_groups:
+    name: "Perfiles de Usuario"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/user_groups"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_variants:
+    name: "Variantes de Productos"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/variants"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_w_units:
+    name: "Precios por Unidad"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/w_units"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_warehouses:
+    name: "Bodegas"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/warehouses"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  system_settings_withholding_tax:
+    name: "Retenciones"
+    module: "system_settings"
+    url: "https://wappsi336.com/holamigo/admin/system_settings/withholding_tax"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: false
+    status: "active"
+  transfers_list:
+    name: "Lista de traslados"
+    module: "transfers"
+    url: "https://wappsi336.com/holamigo/admin/transfers"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "high"
+    safe_read_only: true
+    status: "active"
+  transfers_orders:
+    name: "Ordenes de traslado"
+    module: "transfers"
+    url: "https://wappsi336.com/holamigo/admin/transfers/orders"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "high"
+    safe_read_only: true
+    status: "active"
+  users_users:
+    name: "Lista Usuarios"
+    module: "users"
+    url: "https://wappsi336.com/holamigo/admin/users"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"
+  wappsi_invoicing_invoices:
+    name: "Mis Facturas"
+    module: "wappsi_invoicing"
+    url: "https://wappsi336.com/holamigo/admin/wappsi_invoicing/invoices"
+    pattern: "filter_paginated_table"
+    date_filter: true
+    expected_outputs:
+      - "table"
+    priority: "medium"
+    safe_read_only: true
+    status: "active"

@@ -1,0 +1,39 @@
+# Optional report-specific overrides.
+# The scraper starts with automatic detection, then this file can pin selectors
+# once ASNO reports are mapped with evidence.
+historical_range:
+  from: "2001-01-01 00:00:00"
+  to: "2026-12-31 23:59:59"
+  chunk: monthly
+
+priority:
+  - ventas detalladas
+  - compras detalladas
+  - kardex
+  - movimientos de inventario
+  - cartera por cliente
+  - cuentas por pagar
+  - gastos
+  - egresos
+  - estado de resultados
+  - balance general
+  - maestro de productos
+  - maestro de clientes
+  - maestro de proveedores
+
+reports:
+  sales:
+    name: Informe de Ventas
+    url_path: /admin/reports/sales
+    type: paginated_table
+    strategy: table_monthly_chunks
+    risk: high
+    date_format: "%d/%m/%Y"
+    date_from_selector: "#start_date_dh"
+    date_to_selector: "#end_date_dh"
+    range_selector: "#date_records_filter_dh"
+    range_value_contains: "Rango"
+    submit_selector: "#submit_filter"
+    table_selector: "table:visible"
+    pagination_next_selector: "a.paginate_button.next:not(.disabled), li.next:not(.disabled) a, a:has-text('Siguiente')"
+    output_id: sales
