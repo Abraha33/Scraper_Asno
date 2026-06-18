@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Credentials / secrets
+credentials.txt
+credentials
+env.txt
+*.secret
+*.key
+
+# ASNO extracted data / evidence
+data/
+outputs/
+logs/
+*.log
+*.xlsx
+*.csv
+*.pdf
+*.html
+*.png
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
