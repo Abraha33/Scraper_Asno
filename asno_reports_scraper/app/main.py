@@ -301,10 +301,15 @@ async def run(args: argparse.Namespace) -> None:
                     if item.get("debug", {}).get("counts"):
                         counts = item["debug"]["counts"]
                         pagination = item["debug"].get("pagination", {})
+                        first_info = pagination.get("first_info_snapshot", {})
                         print(f"DEBUG_ROWS_BEFORE_DEDUPE: {counts.get('rows_before_dedupe')}")
                         print(f"DEBUG_ROWS_AFTER_DEDUPE: {counts.get('rows_after_dedupe')}")
                         print(f"DEBUG_UNIQUE_IDS: {counts.get('unique_ids_after_dedupe')}")
+                        print(f"DEBUG_DATATABLES_ENTRIES: {first_info.get('total_records_reported')}")
+                        print(f"DEBUG_PAGES_ESTIMATED: {pagination.get('pages_detected_from_info')}")
                         print(f"DEBUG_PAGES_WALKED: {pagination.get('pages_walked')}")
+                        print(f"DEBUG_PAGES_REPEATED: {pagination.get('pages_repeated') or 0}")
+                        print(f"DEBUG_RETRIES_TOTAL: {pagination.get('retries_total') or 0}")
                         print(f"DEBUG_TERMINATION_REASON: {pagination.get('termination_reason')}")
                     for key, value in item.get("outputs", {}).items():
                         print(f"{key.upper()}: {value}")
