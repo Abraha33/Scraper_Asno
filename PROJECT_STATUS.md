@@ -128,8 +128,8 @@ python -m app.main --env-file "..\credentials.txt" discover
 
 | Riesgo | Descripción |
 |--------|-------------|
-| **Paginación no confiable** | La info text de DataTables no se actualiza consistentemente entre páginas, causando sobre/sub conteo (~100 rows extra por mes). Ver `docs/audits/sprint_1_core_stabilization.md`. |
-| **Dedup inefectivo** | `_source_page` incluido en el fingerprint — filas duplicadas entre páginas NO se deduplican. |
+| **Paginación legacy** | El fix del draw-event Promise asume DataTable jQuery. Targets que usen otras librerías DT caerán en DOM click fallback. Ver `docs/audits/sprint_3_live_sales_validation.md`. |
+| **Common.go_next_page() sin migrar** | `generic_extractors/common.py:go_next_page()` aún usa detección info-text-only. Migrar al patrón draw-event. |
 | **Modo learning ruidoso** | Captura clicks de navegación del sidebar como pasos de receta (ej: "Importar Productos" en lugar del reporte). |
 | **Asistencia sin valor en happy path** | Modo assisted (Enter) produce resultados idénticos a normal para ventas. |
 | **data/ no debe subirse** | El directorio `data/` contiene datos extraídos. Está en `.gitignore`. |
@@ -194,24 +194,38 @@ python -m app.main --env-file "..\credentials.txt" discover
 
 ### Estado de validación
 
-- `py_compile`: pasa en los 4 archivos modificados
-- `pytest`: 12/12 tests pasan
-- Validación live: pendiente (requiere ejecución con ASNO real)
+- `py_compile`: pasa en los archivos modificados
+- `pytest`: 12/12 tests pasan (Sprint 2) + 4 nuevos tests = 16 tests (todos pasan)
+- **Validación live**: **CONFIRMADA** — 870 rows, 9 pages walked, 0 retries, `next_button_disabled` termination
 
-### Comandos de validación pendientes
-
-```powershell
-python -m app.main --env-file "..\credentials.txt" extract --report sales --from 2026-06-01 --to 2026-06-17 --debug-counts
-python -m app.main --env-file "..\credentials.txt" extract-generic --target sales_report --from 2026-06-01 --to 2026-06-17 --debug-counts
-```
-
-### Acciones para Sprint 3 (recomendadas)
-- Validación live de paginación corregida
-- Re-colectar todos los chunks mensuales con paginación corregida para cifras precisas
-- Aplicar mismo fix a `common.py:go_next_page()` (mismo patrón info-text-only)
+### Acciones para Sprint 4 (recomendadas)
+- **Re-colectar todos los chunks mensuales** con paginación corregida para cifras precisas (2026-01 a 2026-06)
+- Migrar `common.py:go_next_page()` al patrón draw-event Promise
 - Modo learning: filtrar steps de navegación irrelevantes
 - Remover assisted pause del happy path de ventas
 - Test end-to-end con mock DataTable
+
+## Sprint 3 — Live Sales Validation (completado: 2026-06-17)
+
+### Resultados de validación
+
+| Comando | Pages | Rows | Dedup | Retries | Terminación |
+|---------|-------|------|-------|---------|-------------|
+| `extract --report sales` | **9** | **870** | 0 removidas | **0** | `next_button_disabled` |
+| `extract-generic --target sales_report` | **9** | **870** | 0 removidas | — | — |
+
+### Root cause
+
+La paginación fallaba porque `dt.page('next').draw('page')` retorna **antes** de que el AJAX server-side se complete. El retry loop empeoraba el problema al avanzar la página internamente (page 0→1→2→3) sin esperar la respuesta AJAX, produciendo un `page_did_not_advance_max_retries` con solo 100 rows.
+
+### Fix aplicado
+
+`_click_next()` ahora envuelve `dt.page('next').draw('page')` en un Promise que se resuelve en el evento `draw` de DataTable (disparado **después** del AJAX + redraw). Timeout de 30s como safety net.
+
+### Documentación generada
+
+- `docs/audits/sprint_3_live_sales_validation.md` — Auditoría completa con diagnóstico, root cause, y resultados
+
 # Project Status — ASNO Mirror
 
 Repositorio inicializado para trabajo por sprints.
