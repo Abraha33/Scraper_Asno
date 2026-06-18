@@ -170,13 +170,48 @@ python -m app.main --env-file "..\credentials.txt" discover
 
 ### Documentación generada
 - `docs/audits/sprint_1_core_stabilization.md` — Auditoría completa con análisis técnico
+- `docs/audits/sprint_2_pagination_dedup_fix.md` — Fix de paginación y deduplicación
 
-### Acciones para Sprint 2 (pendientes)
-- Fix pagination: reemplazar wait_for_function con retry loop + actual wait for DataTable draw
-- Fix dedup: excluir `_source_page` del fingerprint
+## Sprint 2 — Pagination & Dedup Fix (completado: 2026-06-17)
+
+### Cambios realizados
+
+| Archivo | Cambio |
+|---------|--------|
+| `app/pagination.py` | Nueva función `advance_page_detailed()` con detección de cambio de tbody + retry loop. Utilidad reusable. |
+| `app/sales_extractor.py` | `next_page_detail()` ahora delega en `advance_page_detailed()`. `_dedupe_rows()` excluye campos `_` del fingerprint. `collect_all_sales_pages()` detecta páginas repetidas. Debug counts extendido. |
+| `app/main.py` | Muestra `DEBUG_DATATABLES_ENTRIES`, `DEBUG_PAGES_REPEATED`, `DEBUG_RETRIES_TOTAL` |
+| `tests/test_sales_extractor.py` | 7 nuevos tests de dedup (12 tests total, todos pasan) |
+
+### Problemas resueltos
+
+| # | Issue | Solución |
+|---|-------|----------|
+| 1 | Paginación: timeout silencioso en `wait_for_function` | Reemplazado por `advance_page_detailed()` con señal primaria de cambio de tbody + retry loop |
+| 2 | Paginación: retornaba True aún sin cambio de página | Ahora retorna False cuando la página no avanzó realmente |
+| 3 | Dedup: `_source_page` en fingerprint | Fingerprint ahora excluye TODOS los campos con prefijo `_` |
+| 4 | Debug-counts incompletos | Agregados: `datatables_entries`, `pages_repeated`, `retries_total`, `pages_detected_from_info` |
+
+### Estado de validación
+
+- `py_compile`: pasa en los 4 archivos modificados
+- `pytest`: 12/12 tests pasan
+- Validación live: pendiente (requiere ejecución con ASNO real)
+
+### Comandos de validación pendientes
+
+```powershell
+python -m app.main --env-file "..\credentials.txt" extract --report sales --from 2026-06-01 --to 2026-06-17 --debug-counts
+python -m app.main --env-file "..\credentials.txt" extract-generic --target sales_report --from 2026-06-01 --to 2026-06-17 --debug-counts
+```
+
+### Acciones para Sprint 3 (recomendadas)
+- Validación live de paginación corregida
+- Re-colectar todos los chunks mensuales con paginación corregida para cifras precisas
+- Aplicar mismo fix a `common.py:go_next_page()` (mismo patrón info-text-only)
 - Modo learning: filtrar steps de navegación irrelevantes
 - Remover assisted pause del happy path de ventas
-- Re-colectar datos con paginación corregida para obtener cifras precisas
+- Test end-to-end con mock DataTable
 # Project Status — ASNO Mirror
 
 Repositorio inicializado para trabajo por sprints.
