@@ -1,0 +1,58 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Playwright / browser artifacts
+.playwright/
+playwright-report/
+test-results/
+
+# Credentials / secrets - NEVER COMMIT
+.env
+.env.*
+!.env.example
+credentials.txt
+credentials
+credentials.*
+!credentials.example.txt
+env.txt
+en.txt
+*.secret
+*.key
+*.pem
+
+# ASNO extracted data / evidence - NEVER COMMIT
+data/
+outputs/
+logs/
+state/
+**/data/
+**/outputs/
+**/logs/
+**/state/
+*.log
+*.xlsx
+*.xls
+*.csv
+*.pdf
+*.html
+*.png
+*.jpg
+*.jpeg
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local scratch
+*.tmp
+*.bak
+
