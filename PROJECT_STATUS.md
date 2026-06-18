@@ -128,24 +128,55 @@ python -m app.main --env-file "..\credentials.txt" discover
 
 | Riesgo | Descripción |
 |--------|-------------|
-| **Ventas 970 vs 11567** | Discrepancia en conteos de ventas entre diferentes métodos de extracción. Requiere investigación en Sprint 1. |
-| **Target sales ambiguo** | El target `sales_report` puede referirse a diferentes URLs/módulos. Requiere registro explícito. |
+| **Paginación no confiable** | La info text de DataTables no se actualiza consistentemente entre páginas, causando sobre/sub conteo (~100 rows extra por mes). Ver `docs/audits/sprint_1_core_stabilization.md`. |
+| **Dedup inefectivo** | `_source_page` incluido en el fingerprint — filas duplicadas entre páginas NO se deduplican. |
+| **Modo learning ruidoso** | Captura clicks de navegación del sidebar como pasos de receta (ej: "Importar Productos" en lugar del reporte). |
+| **Asistencia sin valor en happy path** | Modo assisted (Enter) produce resultados idénticos a normal para ventas. |
 | **data/ no debe subirse** | El directorio `data/` contiene datos extraídos. Está en `.gitignore`. |
 | **credentials.txt no debe subirse** | Contiene credenciales reales de ASNO. Está en `.gitignore` y no está trackeado. |
 | **extract-all peligroso** | `extract-all` sin plan ni checkpoints puede sobrecargar el sistema y generar datos inconsistentes. |
 | **Acciones read-only** | Todo el scraper debe mantenerse en modo READ-ONLY. No modificar datos en ASNO. |
 | **Extracciones históricas largas** | Ejecutar extracciones de meses/años sin chunking puede fallar por timeout o saturación. |
 
-## Próximo sprint recomendado
+## Sprint 1 — Core Stabilization (completado: 2026-06-17)
 
-**Sprint 1 - Core Stabilization**
+### Hallazgos clave
 
-Objetivos:
-- Auditar arquitectura actual
-- Confirmar ventas histórico y resolver discrepancia 970 vs 11567
-- Revisar diferencias de conteos entre extractores
-- Separar flujos normal / assisted / learning
-- Endurecer manejo de errores y reintentos
+| # | Issue | Severidad | Archivo | Línea |
+|---|-------|-----------|---------|-------|
+| 1 | Paginación: timeout silencioso en `wait_for_function` | **Alta** | `sales_extractor.py` | 323 |
+| 2 | Paginación: sin reintento cuando info text no cambia | **Alta** | `sales_extractor.py` | 327-328 |
+| 3 | Dedup: `_source_page` en fingerprint desactiva dedup cross-page | **Media** | `sales_extractor.py` | 383 |
+| 4 | Modo learning: captura navegación sidebar como pasos | **Media** | `human_learning.py` | (observer) |
+| 5 | Asistencia en happy path sin valor agregado | **Baja** | `sales_extractor.py` | 579-595 |
+| 6 | `debug_pagination` empeora el problema de info text stale | **Baja** | `sales_extractor.py` | 347 |
+
+### Discrepancia 970 vs 11567 resuelta
+- Ambos comandos llaman la misma función `extract_sales_report()` con diferentes rangos de fecha
+- La discrepancia es esperada por rangos diferentes, NO por bug de code-path
+- **Sin embargo**: ningún conteo es confiable debido al bug de paginación (sobre/sub conteo)
+
+### Totales actuales de data/logs/
+
+| Chunk | DataTable "entries" | Filas colectadas | Diferencia |
+|-------|---------------------|------------------|------------|
+| 2026-01 | 1 604 | 1 704 | +100 |
+| 2026-02 | 1 766 | 1 866 | +100 |
+| 2026-03 | 1 933 | 2 033 | +100 |
+| 2026-04 | 1 808 | 1 908 | +100 |
+| 2026-05 | 2 038 | 2 138 | +100 |
+| 2026-06 | 870 | 900 | +30 |
+| **Suma** | **10 019** | **10 549** | **+530** |
+
+### Documentación generada
+- `docs/audits/sprint_1_core_stabilization.md` — Auditoría completa con análisis técnico
+
+### Acciones para Sprint 2 (pendientes)
+- Fix pagination: reemplazar wait_for_function con retry loop + actual wait for DataTable draw
+- Fix dedup: excluir `_source_page` del fingerprint
+- Modo learning: filtrar steps de navegación irrelevantes
+- Remover assisted pause del happy path de ventas
+- Re-colectar datos con paginación corregida para obtener cifras precisas
 # Project Status — ASNO Mirror
 
 Repositorio inicializado para trabajo por sprints.
